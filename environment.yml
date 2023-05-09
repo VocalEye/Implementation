@@ -1,0 +1,11 @@
+name: implementation
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - conda-forge:opencv
+  - conda-forge:tensorflow
+  - pip
+  - pip:
+    - mediapipe
