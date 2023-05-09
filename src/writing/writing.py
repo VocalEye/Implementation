@@ -1,3 +1,7 @@
+from playsound import playsound
+
+SOUND_INPUT = './resources/sounds/'
+
 SECTORS = [
     [None, "J", None, "K", None, "I", None, "L", None],
     [None, "F", None, "G", None, "E", None, "H", None],
@@ -16,9 +20,11 @@ class MessageWritter:
     sensibility = 10
     counter = 0
     memory = -1
+    sound = False
 
-    def __init__(self, sensibility):
+    def __init__(self, sensibility, sound = False):
         self.sensibility = sensibility
+        self.sound = sound
 
     def resolveSelection(self, previous, present):
         return SECTORS[previous][present]
@@ -54,13 +60,21 @@ class MessageWritter:
     def getMessage(self):
         return self.message
     
+    def getStatistics(self):
+        return "Buffer: " + str(self.buffer) + "    Memory: " + str(self.memory) + "    counter: " + str(self.counter)
+    
     def processPrediction(self, prediction):
         if(self.memory != 4 and self.memory != prediction and self.counter > self.sensibility):
+            if(self.sound):
+                playsound(SOUND_INPUT + 'start.mp3', block = False)
             self.buffer.append(self.memory)
 
         self.resolveMessage()
         
-        if(self.memory == prediction): self.counter += 1
+        if(self.memory == prediction):
+            self.counter += 1
+            if self.counter > 10 and self.memory != 4 and self.sound:
+                    playsound(SOUND_INPUT + 'stop.mp3', block = False)
         else:
             self.counter = 0
             self.memory = prediction
