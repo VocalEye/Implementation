@@ -49,4 +49,5 @@ def processSyntheticInput(input, model):
             break
         if key == ord('s'):
             os.system("pause")
+    print(messageWritter.getMessage())
     capturer.release()

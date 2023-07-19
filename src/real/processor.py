@@ -109,13 +109,13 @@ def processRealInput(input, model):
                 if activeTracking:
                     imageHeight, imageWeight = full_image.shape[:2]
                     messageWritter.processPrediction(prediction)
-                    
+                    print(messageWritter.getStatistics(), "message:", messageWritter.getMessage())
                     full_image = cv2.putText(full_image, messageWritter.getStatistics(), (50, imageHeight - 200), cv2.FONT_HERSHEY_SIMPLEX, 
                         1.2, (500, 0, 0), 2, cv2.LINE_AA)
                     full_image = cv2.putText(full_image, "Mensaje", (50, imageHeight - 150), cv2.FONT_HERSHEY_SIMPLEX, 
                         1.2, (255, 255, 255), 2, cv2.LINE_AA)
                     full_image = cv2.putText(full_image, "\"" + messageWritter.getMessage() + "\"", (50, imageHeight - 80), cv2.FONT_HERSHEY_SIMPLEX, 
-                        2.5, (255, 255, 255), 2, cv2.LINE_AA)
+                        2.5, (0, 0, 0), 2, cv2.LINE_AA)
 
             cv2.imshow('MediaPipe Face Mesh', full_image)
 
