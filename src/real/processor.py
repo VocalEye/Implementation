@@ -99,11 +99,11 @@ def processRealInput(input, model):
                 leftPrediction = getPredictedClass(leftArray)[0]
                 prediction = getPredictedClass(averageArray)[0]
 
-                full_image = cv2.putText(full_image, "Prediccion derecho: " + fetchCharacter(rightPrediction), (100, 100), cv2.FONT_HERSHEY_SIMPLEX, 
+                full_image = cv2.putText(full_image, "Right eye prediction: " + fetchCharacter(rightPrediction), (100, 100), cv2.FONT_HERSHEY_SIMPLEX, 
                         2, (500, 0, 0), 2, cv2.LINE_AA)
-                full_image = cv2.putText(full_image, "Prediccion izquierdo: " + fetchCharacter(leftPrediction), (100, 150), cv2.FONT_HERSHEY_SIMPLEX, 
+                full_image = cv2.putText(full_image, "Left eye prediction: " + fetchCharacter(leftPrediction), (100, 150), cv2.FONT_HERSHEY_SIMPLEX, 
                         2, (500, 0, 0), 2, cv2.LINE_AA)
-                full_image = cv2.putText(full_image, "Prediccion promedio: " + fetchCharacter(prediction), (100, 200), cv2.FONT_HERSHEY_SIMPLEX, 
+                full_image = cv2.putText(full_image, "Average prediction: " + fetchCharacter(prediction), (100, 200), cv2.FONT_HERSHEY_SIMPLEX, 
                         2, (500, 0, 0), 2, cv2.LINE_AA)
                 
                 if activeTracking:
@@ -117,7 +117,16 @@ def processRealInput(input, model):
                     full_image = cv2.putText(full_image, "\"" + messageWritter.getMessage() + "\"", (50, imageHeight - 80), cv2.FONT_HERSHEY_SIMPLEX, 
                         2.5, (0, 0, 0), 2, cv2.LINE_AA)
 
-            cv2.imshow('MediaPipe Face Mesh', full_image)
+            
+            scale_percent = 90 # percent of original size
+            width = int(full_image.shape[1] * scale_percent / 100)
+            height = int(full_image.shape[0] * scale_percent / 100)
+            dim = (width, height)
+            
+            # resize image
+            resized = cv2.resize(full_image, dim, interpolation = cv2.INTER_AREA)
+
+            cv2.imshow('VocalEye', resized)
 
             key = cv2.waitKey(1) 
             if key == ord('q'):
