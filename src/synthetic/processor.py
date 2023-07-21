@@ -34,15 +34,15 @@ def processSyntheticInput(input, model):
 
         imageHeight, imageWeight = full_image.shape[:2]
 
-        full_image = cv2.putText(full_image, "Prediccion: " + fetchCharacter(prediction), (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
+        full_image = cv2.putText(full_image, "Prediction: " + fetchCharacter(prediction), (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 
                    1.2, (0, 0, 0), 2, cv2.LINE_AA)
         
-        full_image = cv2.putText(full_image, "Mensaje", (50, imageHeight - 150), cv2.FONT_HERSHEY_SIMPLEX, 
+        full_image = cv2.putText(full_image, "Message:", (50, imageHeight - 150), cv2.FONT_HERSHEY_SIMPLEX, 
                     1.2, (0, 0, 0), 2, cv2.LINE_AA)
         full_image = cv2.putText(full_image, "\"" + messageWritter.getMessage() + "\"", (50, imageHeight - 80), cv2.FONT_HERSHEY_SIMPLEX, 
                     1.2, (0, 0, 0), 2, cv2.LINE_AA)
 
-        cv2.imshow('Prueba de simulacion', full_image)
+        cv2.imshow('Synthetic test', full_image)
 
         key = cv2.waitKey(1) 
         if key == ord('q'):

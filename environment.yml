@@ -1,4 +1,4 @@
-name: implementation
+name: VocalEye
 channels:
   - conda-forge
   - defaults
@@ -9,3 +9,4 @@ dependencies:
   - pip
   - pip:
     - mediapipe
+    - playsound

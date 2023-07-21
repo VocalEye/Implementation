@@ -13,20 +13,20 @@ def getPredictedClass(predictions):
 
 def fetchCharacter(prediction):
     if prediction == 0:
-        return "Arriba Izquierda"
+        return "Up left"
     elif prediction == 1:
-        return "Arriba"
+        return "Up"
     elif prediction == 2:
-        return "Arriba Derecha"
+        return "Up right"
     elif prediction == 3:
-        return "Izquierda"
+        return "Left"
     elif prediction == 4:
-        return "Centro"
+        return "Center"
     elif prediction == 5:
-        return "Derecha"
+        return "Right"
     elif prediction == 6:
-        return "Abajo Izquierda"
+        return "Down left"
     elif prediction == 7:
-        return "Abajo"
+        return "Down"
     elif prediction == 8:
-        return "Abajo Derecha"
+        return "Down right"
