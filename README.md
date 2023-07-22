@@ -44,7 +44,7 @@ At the working interface, you can:
 - Press `s` to start/stop spelling
 - Press `q` to exit
 
-Once you press start, the interface increases to include some running data and the message you are spelling!:
+Once you press start, the interface increases to include some running data and the message you are spelling! (Click on the following image to see video test!):
 
 [![Video test](./resources/images/interface_2.png)](https://drive.google.com/file/d/132PIQtCAUbX43Us5XJNVW4IOhV3fo87b/view?usp=drive_link)
 
