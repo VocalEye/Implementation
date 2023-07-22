@@ -23,6 +23,7 @@ class MessageWritter:
     sound = False
 
     def __init__(self, sensibility, sound = False):
+        self.buffer = []
         self.sensibility = sensibility
         self.sound = sound
 
