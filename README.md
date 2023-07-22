@@ -46,7 +46,7 @@ At the working interface, you can:
 
 Once you press start, the interface increases to include some running data and the message you are spelling!:
 
-<video src="resources/video/HOLA.mp4" controls title="Title"></video>
+<video src="resources/video/HOLA_small.mp4" controls title="Video test"></video>
 
 As you keep your eyes to a certain position for enough time, the system is going to play a sound telling you that it has recorded that position and you must return to a centered position to confirm it and the it will play a confirmation sound.
 
